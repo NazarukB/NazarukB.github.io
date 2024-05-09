@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Android Desktop</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="android-desktop">
+	<div class="status-bar">
+		<div id="current-time"></div>
+		<div id="battery-pct"></div>
+	</div>
+	<div class="app-grid">
+        <div class="app">
+			<a href="apps/bank/bank.html" class="app-icon"><img src="images/bank.png" alt="bank"></a>
+			<h1>Банкинг</h1>
+		</div>
+		<div class="app">
+			<a href="apps/bank/crypto.html" class="app-icon"><img src="images/crypto.png" alt="bank"></a>
+			<h1>Крипта</h1>
+		</div>
+		<div class="app">
+			<a href="apps/dots/dots.html" class="app-icon"><img src="images/dots.png" alt="bank"></a>
+			<h1>Крестики нолики</h1>
+		</div>
+		<a href="page2.html" class="app-icon"><img src="images/crypto.png" alt="crypto"></a>
+		//other apps
+	</div>
+    </div>
+</body>
+</html>
+
+
+<script>
+	function updateClock() {
+		var date = new Date();
+		document.getElementById("current-time").innerText = ('0' + date.getHours()).slice(-2) + ":" + ('0' + date.getMinutes()).slice(-2);
+		setTimeout(updateClock, 1000);
+	}
+
+	function updateBatteryStatus(battery) {
+		document.getElementById("battery-pct").textContent = battery.level * 100;
+	}
+
+	document.addEventListener('DOMContentLoaded', (event) => {
+		updateClock();
+		navigator.getBattery().then(function(battery) {
+			battery.addEventListener('levelchange', function() {
+				updateBatteryStatus(battery);
+			});
+			updateBatteryStatus(battery);
+		});
+	});
+</script>

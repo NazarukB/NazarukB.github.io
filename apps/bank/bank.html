@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="android-desktop">
+    <div class="status-bar"> </div>
+    <div>
+    
+        <label for="balance">Balance:</label>
+        <input type="text" id="balance" readonly><br>
+        <button class="button" role="button" onclick="depositeFunds()">Пополнить</button>
+        <button class="button" role="button" onclick="withdrawFunds()">Снять</button>
+    </div>
+    </div>
+</body>
+</html>
+    
+    <script>
+        var balance = 0;
+    
+        function depositeFunds() {
+            var amount = prompt("Введите суму пополнения:");
+            balance += parseInt(amount);
+            updateBalance();
+        }
+      
+        function withdrawFunds() {
+            var amount = prompt("Введите суму вывода:");
+            if (parseInt(amount) > balance) {
+                alert("Недостаточно денег!");
+            } else {
+                balance -= parseInt(amount);
+                updateBalance();
+            }
+        }
+    
+        function updateBalance() {
+            document.getElementById('balance').value = balance;
+        }
+    </script>
