@@ -15,10 +15,11 @@ body {
 	overflow: hidden;
 	margin: 50px auto;
 }
+
 h1 {
 	font-size: 0.8rem;
-	color: whitesmoke;
-	text-shadow: 4px 4px 5px black;
+	color: black;
+	text-shadow: 4px 4px 5px whitesmoke;
 	text-align: center;
 }
 .status-bar {
@@ -41,8 +42,8 @@ h1 {
 }
 
 .app-icon img {
-	width: 50px;
-	height: 50px;
+	width: 80px;
+	height: 80px;
 	border-radius: 10px;
 }
 
@@ -62,10 +63,21 @@ h1 {
 	font-size: 0.8rem;
 	color: whitesmoke;
 	text-align: right;
-	padding: 50px;
-	right: 10px;
-	position: absolute;
+	padding: 0px;
+	right: 0px;
 }
+
+
+
+
+.down_grid_app {
+    display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 10px;
+	padding: 10px;
+	bottom: 0;
+}
+
 /*#battery-pct {*/
 /*	position: absolute;*/
 /*	right: 10px;*/
